@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>page 3</title>
+    <title>Page 3</title>
     <link rel="stylesheet" href="../static/page3.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
     <h5 class="head">Every word counts, make them shine -- Happy Speaking!!</h5>
 
     <!-- Display the corrected speech in a text box -->
-    <textarea id="corrected-speech" class="speech-box" placeholder="Corrected speech will appear here..." readonly></textarea>
+    <textarea id="corrected-speech" class="speech-box" placeholder="Corrected speech will appear here..."></textarea>
 
     <!-- Gradient Divs around Play Button -->
     <div class="play-container">
@@ -40,12 +40,26 @@
     </div>
 
     <script>
-        // You can add the audio functionality here
-        document.getElementById('play-button').addEventListener('click', function() {
-            let audio = new Audio('path/to/your/corrected-speech-audio.mp3');
-            audio.play();
+        // Text-to-speech functionality
+        document.getElementById('play-button').addEventListener('click', function () {
+            const text = document.getElementById('corrected-speech').value;
+
+            if (!text.trim()) {
+                alert("Please enter some text to convert to speech!");
+                return;
+            }
+
+            // Initialize SpeechSynthesis API
+            const synth = window.speechSynthesis;
+            const utterance = new SpeechSynthesisUtterance(text);
+
+            // Set speech properties
+            utterance.rate = 1; // Speed
+            utterance.volume = 1; // Volume
+            utterance.pitch = 1; // Pitch
+
+            synth.speak(utterance);
         });
     </script>
-
 </body>
 </html>
