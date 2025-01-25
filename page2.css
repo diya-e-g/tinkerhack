@@ -130,3 +130,96 @@ body {
     transform: scale(0.95);
     filter: brightness(0.8);
 }
+
+/* Text area for stuttered speech */
+.speech-box {
+    margin-top: 20px;
+    width: 80%;
+    height: 100px;
+    font-family: "Josefin Slab", serif;
+    font-size: 16px;
+    color: #333;
+    background: #8bcad8; /* Light Blue */
+    border: 2px solid #6cc7da; /* Matches mic-container theme */
+    border-radius: 10px;
+    padding: 10px;
+    resize: none; /* Prevent resizing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    overflow-y: auto;
+    outline: none;
+}
+.speech-box::placeholder {
+    color: #160770;
+    font-style:normal;
+    font-size:20px;
+    opacity: 1;
+}
+
+
+/* Button for Clear Speech */
+.clear-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Josefin Slab", serif;
+    color: white;
+    background: #002060; /* Dark Blue */
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for Clear Speech button */
+.clear-btn:hover {
+    background: #004080; /* Slightly lighter blue */
+    transform: scale(1.05);
+}
+
+/* Active effect for Clear Speech button */
+.clear-btn:active {
+    background: #6cc7da; /* Light Blue when pressed */
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Back Button Styles */
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #002060; /* Dark Blue */
+    color: white;
+    font-size: 16px;
+    font-family: "Josefin Slab", serif;
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-btn i {
+    margin-right: 5px; /* Adds spacing between icon and text */
+    font-size: 18px; /* Arrow icon size */
+}
+
+/* Hover effect for Back Button */
+.back-btn:hover {
+    background: #004080; /* Slightly lighter blue */
+    transform: scale(1.05);
+}
+
+/* Active effect for Back Button */
+.back-btn:active {
+    background: #6cc7da; /* Light Blue when pressed */
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
