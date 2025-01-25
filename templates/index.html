@@ -3,33 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Structured Text Cleaner</title>
+    <title>page1</title>
+    <link
+        rel="stylesheet"
+        href="../static/page1.css"
+        />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Structured Text Cleaner</h1>
-    <textarea id="inputText" rows="10" cols="50" placeholder="Enter structured text here (use bullets or numbering)"></textarea>
-    <br>
-    <button onclick="processText()">Clean Text</button>
-    <h2>Cleaned Normal Text:</h2>
-    <div id="outputText" style="white-space: pre-wrap; border: 1px solid #ccc; padding: 10px; margin-top: 10px;"></div>
+    <h2 class="head">voice sync.</h2>
+    <h5 id="one">Your voice matters , Let it be heard!!</h5>
 
-    <script>
-        async function processText() {
-            const inputText = document.getElementById('inputText').value;
-            const response = await fetch('/process', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ text: inputText }),
-            });
-            const result = await response.json();
-            if (response.ok) {
-                document.getElementById('outputText').textContent = result.normal_text;
-            } else {
-                document.getElementById('outputText').textContent = 'Error: ' + result.error;
-            }
-        }
-    </script>
+    <!-- Get Started Button -->
+    <a href="index2.html">
+        <button class="get-started">Get Started</button>
+    </a>
 </body>
 </html>
