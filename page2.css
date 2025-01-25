@@ -1,12 +1,10 @@
-html, body 
-{
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
 }
 
-body 
-{
+body {
     background: linear-gradient(
         to bottom, 
         rgb(0, 2, 26),  /* Dark Navy Blue */
@@ -21,42 +19,114 @@ body
     flex-direction: column;
 }
 
-.head 
-{
+.head {
     font-family: "Josefin Slab", serif;
     font-optical-sizing: auto;
     font-weight: lighter;
     font-style: normal;
     font-size: 30px;
     color: white;
-    margin-top: -10px; /* Keeps it closer to .head */
-    margin-left: -20px; /* Moves it closer to the left */
+    margin-bottom: 20px;
 }
 
-/* General button styles */
+/* Container for the microphone and circular gradients */
+.mic-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+}
+
+/* First outermost circle */
+.mic-container::before {
+    content: '';
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(6, 199, 218, 0.2) 50%, transparent 100%);
+    z-index: -4; /* Push behind others */
+    transform: scale(1);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Second gradient */
+.mic-container::after {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(6, 60, 130, 0.4) 50%, transparent 100%);
+    z-index: -3;
+    transform: scale(1);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Third gradient */
+.mic-container .inner-circle1 {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(3, 27, 78, 0.6) 50%, transparent 100%);
+    z-index: -2;
+    transform: scale(1);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Fourth innermost gradient */
+.mic-container .inner-circle2 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 12, 60, 0.8) 50%, transparent 100%);
+    z-index: -1;
+    transform: scale(1);
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Hover effect for all circles */
+.mic-container:hover::before,
+.mic-container:hover::after,
+.mic-container:hover .inner-circle1,
+.mic-container:hover .inner-circle2 {
+    transform: scale(1.2); /* Enlarges on hover */
+    opacity: 1; /* Ensure visibility */
+}
+
+/* Button styles */
 .mic-btn {
     background-color: transparent;
     border: none;
     padding: 15px;
     cursor: pointer;
     transition: transform 0.2s ease, filter 0.2s ease;
+    z-index: 1; /* Place above the circles */
+}
+
+.mic-btn:focus {
+    outline: none;
 }
 
 /* Microphone icon styles */
 .mic-icon {
-    font-size: 50px; /* Change size of the icon */
-    color: white;    /* Change icon color */
+    font-size: 50px;
+    color: white;
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Hover effect */
+/* Hover effect for icon */
 .mic-btn:hover .mic-icon {
-    transform: scale(1.1);  /* Slightly enlarges the icon on hover */
-    filter: brightness(1.2);  /* Makes the icon a bit brighter */
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
-/* Press effect */
+/* Click effect for icon */
 .mic-btn:active .mic-icon {
-    transform: scale(0.95);  /* Slightly shrinks the icon on click */
-    filter: brightness(0.8);  /* Darkens the icon on click */
+    transform: scale(0.95);
+    filter: brightness(0.8);
 }
