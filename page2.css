@@ -1,0 +1,62 @@
+html, body 
+{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body 
+{
+    background: linear-gradient(
+        to bottom, 
+        rgb(0, 2, 26),  /* Dark Navy Blue */
+        rgb(0, 12, 60), /* Midnight Blue */
+        rgb(3, 27, 78), /* Deep Blue */
+        rgb(6, 60, 130), /* Sapphire Blue */
+        rgb(6, 199, 218) /* Cyan-like Blue */
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.head 
+{
+    font-family: "Josefin Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: lighter;
+    font-style: normal;
+    font-size: 30px;
+    color: white;
+    margin-top: -10px; /* Keeps it closer to .head */
+    margin-left: -20px; /* Moves it closer to the left */
+}
+
+/* General button styles */
+.mic-btn {
+    background-color: transparent;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Microphone icon styles */
+.mic-icon {
+    font-size: 50px; /* Change size of the icon */
+    color: white;    /* Change icon color */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover effect */
+.mic-btn:hover .mic-icon {
+    transform: scale(1.1);  /* Slightly enlarges the icon on hover */
+    filter: brightness(1.2);  /* Makes the icon a bit brighter */
+}
+
+/* Press effect */
+.mic-btn:active .mic-icon {
+    transform: scale(0.95);  /* Slightly shrinks the icon on click */
+    filter: brightness(0.8);  /* Darkens the icon on click */
+}
