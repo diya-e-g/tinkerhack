@@ -59,7 +59,7 @@ def convert_structured_to_normal_text(text):
 # Route for serving the frontend
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('demo.html')
 
 # API endpoint for processing text
 @app.route('/process', methods=['POST'])
