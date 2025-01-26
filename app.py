@@ -18,7 +18,14 @@ custom_corrections = {
     "wrld": "world",
     "pythonn": "python",
     "heloo": "hello",
-    "woorrrld": "world"
+    "woorrrld": "world",
+    "myy": "my",
+    "naame": "name",
+    "naem": "name",
+    "naam": "name",
+    "iz": "is",
+    "iis": "is",
+    "nam": "name"
 }
 
 def remove_repeated_characters(word):

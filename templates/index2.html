@@ -31,15 +31,11 @@
     <!-- Button to Correct Speech -->
     <button id="clear-speech-btn" class="clear-btn">Get Clear Speech</button>
 
-    <!-- Corrected Speech Text -->
-    <textarea id="corrected-speech" class="speech-box" placeholder="Corrected speech will appear here..." readonly></textarea>
-
     <script>
         // Get references to DOM elements
         const micBtn = document.getElementById('mic-btn');
         const speechBox = document.getElementById('stuttered-speech');
         const clearSpeechBtn = document.getElementById('clear-speech-btn');
-        const correctedSpeechBox = document.getElementById('corrected-speech');
 
         // Check if the browser supports the Web Speech API
         if (!('webkitSpeechRecognition' in window)) {
@@ -73,10 +69,6 @@
                 for (let i = event.resultIndex; i < event.results.length; i++) {
                     transcript += event.results[i][0].transcript;
                 }
-
-                // Convert to lowercase and remove unnecessary special characters
-                transcript = transcript.toLowerCase().replace(/[^a-zA-Z0-9\s]/g, '');
-
                 speechBox.value = transcript;
             };
 
@@ -117,7 +109,11 @@
 
                 const data = await response.json();
                 if (data.normal_text) {
-                    correctedSpeechBox.value = data.normal_text;
+                    // Store the corrected speech in localStorage
+                    localStorage.setItem('correctedSpeech', data.normal_text);
+                    
+                    // Redirect to index3.html
+                    window.location.href = 'index3.html';
                 } else {
                     alert('Error: ' + (data.error || 'Unknown error'));
                 }

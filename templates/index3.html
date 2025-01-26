@@ -12,14 +12,14 @@
 </head>
 <body>
     <!-- Home Button at top right -->
-    <a href="index.html">
+    <a href="./index.html">
         <button class="home-btn">
             <i class="fas fa-home"></i> Home
         </button>
     </a>
 
     <!-- Back Button at top left -->
-    <a href="index2.html">
+    <a href="./index2.html">
         <button class="back-btn">
             <i class="fas fa-arrow-left"></i>
         </button>
@@ -40,6 +40,13 @@
     </div>
 
     <script>
+        // Get the corrected speech from localStorage
+        const correctedText = localStorage.getItem('correctedSpeech');
+
+        if (correctedText) {
+            document.getElementById('corrected-speech').value = correctedText;
+        }
+
         // Text-to-speech functionality
         document.getElementById('play-button').addEventListener('click', function () {
             const text = document.getElementById('corrected-speech').value;
