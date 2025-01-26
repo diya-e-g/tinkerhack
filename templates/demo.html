@@ -4,18 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Structured Text Cleaner</title>
+    <link rel="stylesheet" href="../static/page2.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Structured Text Cleaner</h1>
-    <textarea id="inputText" rows="10" cols="50" placeholder="Enter structured text here (use bullets or numbering)"></textarea>
+    <!-- Back Arrow Button -->
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> 
+    </a>
+
+    <h1 class="head">Press to record your voice</h1>
+
+    <!-- Mic Button with Circular Gradient Effects -->
+    <div class="mic-container">
+        <button id="mic-btn" class="mic-btn">
+            <i class="fas fa-microphone mic-icon"></i>
+        </button>
+    </div>
+
+    <!-- Stuttered Speech Text Box -->
+    <textarea id="inputText" rows="10" cols="50" class="speech-box" placeholder="Stuttered text appears here"></textarea>
+
     <br>
     <button onclick="processText()">Clean Text</button>
+    
     <h2>Cleaned Normal Text:</h2>
     <div id="outputText" style="white-space: pre-wrap; border: 1px solid #ccc; padding: 10px; margin-top: 10px;"></div>
 
     <script>
+        // Get references to DOM elements
+        const micBtn = document.getElementById('mic-btn');
+        const speechBox = document.getElementById('inputText');
+        const outputTextDiv = document.getElementById('outputText');
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.lang = 'en-US';
+
+        let isListening = false;
+
+        // Toggle speech recognition on mic button click
+        micBtn.addEventListener('click', () => {
+            if (isListening) {
+                recognition.stop();
+                micBtn.classList.remove('listening');
+                isListening = false;
+            } else {
+                recognition.start();
+                micBtn.classList.add('listening');
+                isListening = true;
+            }
+        });
+
+        // Handle speech recognition results
+        recognition.onresult = (event) => {
+            let transcript = '';
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+                transcript += event.results[i][0].transcript;
+            }
+            speechBox.value = transcript;
+        };
+
+        // Handle errors
+        recognition.onerror = (event) => {
+            console.error('Speech recognition error:', event.error);
+            alert('An error occurred during speech recognition: ' + event.error);
+        };
+
+        // Reset button style when recognition stops
+        recognition.onend = () => {
+            micBtn.classList.remove('listening');
+            isListening = false;
+        };
+
+        // Function to process the input text
         async function processText() {
-            const inputText = document.getElementById('inputText').value;
+            const inputText = speechBox.value;
             const response = await fetch('/process', {
                 method: 'POST',
                 headers: {
@@ -25,9 +92,9 @@
             });
             const result = await response.json();
             if (response.ok) {
-                document.getElementById('outputText').textContent = result.normal_text;
+                outputTextDiv.textContent = result.normal_text;
             } else {
-                document.getElementById('outputText').textContent = 'Error: ' + result.error;
+                outputTextDiv.textContent = 'Error: ' + result.error;
             }
         }
     </script>

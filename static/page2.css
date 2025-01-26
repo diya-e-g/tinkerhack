@@ -223,3 +223,29 @@ body {
     transform: scale(0.95);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+.clear-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Josefin Slab", serif;
+    color: white;
+    background: #002060; /* Dark Blue */
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for Clear Speech button */
+.clear-btn:hover {
+    background: #004080; /* Slightly lighter blue */
+    transform: scale(1.05);
+}
+
+/* Active effect for Clear Speech button */
+.clear-btn:active {
+    background: #6cc7da; /* Light Blue when pressed */
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
