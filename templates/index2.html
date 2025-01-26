@@ -28,15 +28,18 @@
     <!-- Stuttered Speech Text Box -->
     <textarea id="stuttered-speech" class="speech-box" placeholder="Stuttered speech will appear here..." readonly></textarea>
 
-    <!-- Button to Navigate to index3.html -->
-    <a href="index3.html">
-        <button id="clear-speech-btn" class="clear-btn">Get Clear Speech</button>
-    </a>
+    <!-- Button to Correct Speech -->
+    <button id="clear-speech-btn" class="clear-btn">Get Clear Speech</button>
+
+    <!-- Corrected Speech Text -->
+    <textarea id="corrected-speech" class="speech-box" placeholder="Corrected speech will appear here..." readonly></textarea>
 
     <script>
         // Get references to DOM elements
         const micBtn = document.getElementById('mic-btn');
         const speechBox = document.getElementById('stuttered-speech');
+        const clearSpeechBtn = document.getElementById('clear-speech-btn');
+        const correctedSpeechBox = document.getElementById('corrected-speech');
 
         // Check if the browser supports the Web Speech API
         if (!('webkitSpeechRecognition' in window)) {
@@ -70,6 +73,10 @@
                 for (let i = event.resultIndex; i < event.results.length; i++) {
                     transcript += event.results[i][0].transcript;
                 }
+
+                // Convert to lowercase and remove unnecessary special characters
+                transcript = transcript.toLowerCase().replace(/[^a-zA-Z0-9\s]/g, '');
+
                 speechBox.value = transcript;
             };
 
@@ -85,6 +92,40 @@
                 isListening = false;
             };
         }
+
+        // Handle "Get Clear Speech" button click
+        clearSpeechBtn.addEventListener('click', async () => {
+            const stutteredText = speechBox.value;
+
+            if (!stutteredText) {
+                alert('Please record some speech before processing.');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:5000/process', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: stutteredText })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error processing text: ' + response.statusText);
+                }
+
+                const data = await response.json();
+                if (data.normal_text) {
+                    correctedSpeechBox.value = data.normal_text;
+                } else {
+                    alert('Error: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to process text: ' + error.message);
+            }
+        });
     </script>
 </body>
 </html>
