@@ -3,5 +3,7 @@ services:
     name: tinkerhack-app
     env: python
     plan: free
-    buildCommand: ""
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
     startCommand: gunicorn app:app
