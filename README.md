@@ -6,8 +6,10 @@ Team Members
 Member 1: Diya Elsa George - Govt. Model Engineering College
 Member 2: Aswini P - Govt. Model Engineering College
 Member 3: Adhina Anup - Govt. Model Engineering College
-Hosted Project Link
-[mention your project hosted project link here]
+
+Project Demo
+Video
+https://youtu.be/0A5MuWJvrbs
 
 Project Description:
 
@@ -83,9 +85,6 @@ Screenshots (Add at least 3)
 Build Photos
 ![Team] Added in repo
 
-Project Demo
-Video
-https://youtu.be/0A5MuWJvrbs
 
 Team Contributions:
 
@@ -93,4 +92,4 @@ Diya Elsa George: Developed the speech-to-text conversion module and text-to-spe
 
 Adhina Anup: Implemented the stuttering correction algorithms and managed real-time processing.
 
-Aswini P: Designed the user interface and have done deployment.
+Aswini P: Designed the user interface and attempted deployment
