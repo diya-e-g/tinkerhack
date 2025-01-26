@@ -43,8 +43,8 @@ For Software:
 * Frontend: html,css,javascript for user interaction
 * Backend: Python for implementing NLP module
 * API: Flask framework
-* Speech-to-text Conversion: 
-* Text-to-speech Conversion:
+* Speech-to-text Conversion: Used pyaudio
+* Text-to-speech Conversion: Used SpeechRecognisition
 
 For Hardware:
 Microphone (to capture live speech input)
