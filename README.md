@@ -97,8 +97,7 @@ Build Photos
 
 Project Demo
 Video
-[Add your demo video link here] Explain what the video demonstrates
-
+https://youtu.be/0A5MuWJvrbs
 
 Team Contributions:
 
