@@ -72,28 +72,16 @@ For Software:
 
 Screenshots (Add at least 3)
 
+![Screenshot1] Added as Screenshot(2).png in repo
 
-![Screenshot2](Add screenshot 2 here with proper name) Add caption explaining what this shows
 
-![Screenshot3](Add screenshot 3 here with proper name) Add caption explaining what this shows
+![Screenshot2]Added as Screenshot(4).png in repo
 
-Diagrams
-![Workflow](Add your workflow/architecture diagram here) Add caption explaining your workflow
+![Screenshot3]Added as Screenshot(5).png in repo
 
-For Hardware:
-
-Schematic & Circuit
-![Circuit](Add your circuit diagram here) Add caption explaining connections
-
-![Schematic](Add your schematic diagram here) Add caption explaining the schematic
 
 Build Photos
-![Team](Add photo of your team here)
-
-![Components](Add photo of your components here) List out all components shown
-
-
-![Final](Add photo of final product here) Explain the final build
+![Team] Added in repo
 
 Project Demo
 Video
