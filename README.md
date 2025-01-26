@@ -64,24 +64,16 @@ For Software:
     --> By using the Text-to-Speech converter, the corrected text is converted to speech
     --> Back buttons are also added for moving to the previous pages.
 
-Installation
-pip install flask
-pip install nltk
-pip install SpeechRecognisition
+Installation:
+Run "pip install -r requirements.txt" command to install dependencies
+
 
 Project Documentation
 For Software:
-
-Screenshots (Add at least 3)
-
+Images:
 [Screenshot1] Added as Screenshot(2).png in repo
-
-
 [Screenshot2]Added as Screenshot(4).png in repo
-
 [Screenshot3]Added as Screenshot(5).png in repo
-
-
 Team photos added in repo
 
 
