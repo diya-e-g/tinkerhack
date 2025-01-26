@@ -8,7 +8,7 @@ Member 2: Aswini P - Govt. Model Engineering College
 Member 3: Adhina Anup - Govt. Model Engineering College
 
 Project Demo
-Video
+Video:
 https://youtu.be/0A5MuWJvrbs
 
 Project Description:
@@ -74,16 +74,15 @@ For Software:
 
 Screenshots (Add at least 3)
 
-![Screenshot1] Added as Screenshot(2).png in repo
+[Screenshot1] Added as Screenshot(2).png in repo
 
 
-![Screenshot2]Added as Screenshot(4).png in repo
+[Screenshot2]Added as Screenshot(4).png in repo
 
-![Screenshot3]Added as Screenshot(5).png in repo
+[Screenshot3]Added as Screenshot(5).png in repo
 
 
-Build Photos
-![Team] Added in repo
+Team photos added in repo
 
 
 Team Contributions:
