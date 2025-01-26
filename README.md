@@ -70,9 +70,11 @@ Run "pip install -r requirements.txt" command to install dependencies
 
 Project Documentation
 For Software:
-Images:
+Project Demo
+Video:
+https://youtu.be/0A5MuWJvrbs
+
 https://drive.google.com/drive/folders/1GKU3mqbQ-EqvJouP1dWffBy0R3qEmY0b?usp=drive_link
-Team photos added in repo
 
 
 Team Contributions:
